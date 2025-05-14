@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luquihub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="luquihub-logo.png" alt="Luquihub Logo" class="logo">
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search Luquihub or type a URL">
+        </div>
+        <div class="button-container">
+            <button id="search-button">Search</button>
+            <button id="lucky-button">I'm Feeling Lucky</button>
+        </div>
+    </div>
+
+    <button id="settings-toggle-btn">⚙️</button>
+
+    <div id="settings-panel">
+        <button id="close-settings-btn">&times;</button>
+        <h2>Settings</h2>
+
+        <div class="settings-section">
+            <h3>Appearance</h3>
+            <div class="setting-item">
+                <label for="theme-toggle-btn">Theme:</label>
+                <button id="theme-toggle-btn">Toggle Dark/Light Mode</button>
+            </div>
+            <div class="setting-item">
+                <label for="bg-color-picker">Background Color:</label>
+                <input type="color" id="bg-color-picker" value="#FFFFFF">
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h3>Productivity Tools</h3>
+            <h4>To-Do List</h4>
+            <div class="todo-controls">
+                <input type="text" id="todo-input" placeholder="Add a new task">
+                <button id="add-todo-btn">Add</button>
+            </div>
+            <ul id="todo-list">
+                <!-- To-do items will be populated here -->
+            </ul>
+
+            <h4>Quick Notes</h4>
+            <textarea id="quick-notes" placeholder="Jot down your thoughts..."></textarea>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

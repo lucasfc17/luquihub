@@ -1,0 +1,318 @@
+:root {
+    --bg-color: #fff;
+    --text-color: #202124;
+    --secondary-text-color: #5f6368;
+    --logo-filter: none;
+
+    --search-bar-bg: #fff;
+    --search-bar-border: #dfe1e5;
+    --search-bar-shadow: 0 1px 6px rgba(32, 33, 36, 0.1);
+    --search-bar-hover-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    --search-bar-hover-border: rgba(223, 225, 229, 0);
+    --input-text-color: #000;
+
+    --button-bg: #f8f9fa;
+    --button-border: #f8f9fa;
+    --button-text-color: #3c4043;
+    --button-hover-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    --button-hover-border: #dadce0;
+    --button-hover-text-color: #202124;
+
+    --panel-bg: #f0f0f0;
+    --panel-border: #ccc;
+    --panel-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    --panel-header-color: #333;
+    --panel-input-bg: #fff;
+    --panel-input-border: #ccc;
+    --panel-button-bg: #e0e0e0;
+    --panel-button-hover-bg: #d0d0d0;
+    --todo-item-bg: #fff;
+    --todo-item-border: #ddd;
+}
+
+body.dark-mode {
+    --bg-color: #202124;
+    --text-color: #e8eaed;
+    --secondary-text-color: #969ba1;
+    --logo-filter: brightness(0.8) saturate(1.2); /* Example: Adjust logo for dark mode if needed */
+
+    --search-bar-bg: #303134; /* Darker search bar */
+    --search-bar-border: #5f6368;
+    --search-bar-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    --search-bar-hover-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+    --search-bar-hover-border: #5f6368;
+    --input-text-color: #e8eaed;
+
+    --button-bg: #3c4043; /* Darker buttons */
+    --button-border: #3c4043;
+    --button-text-color: #e8eaed;
+    --button-hover-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    --button-hover-border: #5f6368;
+    --button-hover-text-color: #fff;
+
+    --panel-bg: #2a2a2e;
+    --panel-border: #444;
+    --panel-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    --panel-header-color: #e8eaed;
+    --panel-input-bg: #3c4043;
+    --panel-input-border: #5f6368;
+    --panel-button-bg: #555;
+    --panel-button-hover-bg: #666;
+    --todo-item-bg: #3c4043;
+    --todo-item-border: #5f6368;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px; /* Adjusted padding */
+    text-align: center; /* Ensure logo and search bar are centered */
+}
+
+.logo {
+    width: 272px;
+    height: auto;
+    margin-bottom: 28px;
+    filter: var(--logo-filter);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--search-bar-border);
+    border-radius: 24px;
+    padding: 5px 8px 5px 20px; /* Increased left padding */
+    width: 100%;
+    max-width: 584px;
+    background-color: var(--search-bar-bg);
+    box-shadow: var(--search-bar-shadow);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    margin-bottom: 20px; /* Space before buttons */
+}
+
+.search-bar:hover,
+.search-bar:focus-within {
+    box-shadow: var(--search-bar-hover-shadow);
+    border-color: var(--search-bar-hover-border);
+}
+
+#search-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 10px;
+    background-color: transparent;
+    color: var(--input-text-color);
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+#search-button,
+#lucky-button {
+    background-color: var(--button-bg);
+    border: 1px solid var(--button-border);
+    border-radius: 4px;
+    color: var(--button-text-color);
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    margin: 0; /* Removed specific margins */
+    padding: 0 16px;
+    line-height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+
+#search-button:hover,
+#lucky-button:hover {
+    box-shadow: var(--button-hover-shadow);
+    background-color: var(--button-bg); /* Keep original for hover for now or define hover specific var */
+    border: 1px solid var(--button-hover-border);
+    color: var(--button-hover-text-color);
+}
+
+
+/* Settings Panel Styles */
+#settings-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    background: var(--button-bg);
+    color: var(--button-text-color);
+    border: 1px solid var(--button-border);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#settings-toggle-btn:hover {
+    background: var(--button-hover-bg);
+    border-color: var(--button-hover-border);
+}
+
+
+#settings-panel {
+    position: fixed;
+    top: 0;
+    right: -350px; /* Start off-screen */
+    width: 320px;
+    height: 100%;
+    background-color: var(--panel-bg);
+    border-left: 1px solid var(--panel-border);
+    box-shadow: var(--panel-shadow);
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    color: var(--text-color); /* Ensure text color contrasts with panel bg */
+}
+
+#settings-panel.open {
+    right: 0; /* Slide in */
+}
+
+#settings-panel h2, #settings-panel h3, #settings-panel h4 {
+    color: var(--panel-header-color);
+    margin-top: 0;
+}
+#settings-panel h3 {
+    margin-top: 20px;
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 5px;
+}
+#settings-panel h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
+#close-settings-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.settings-section {
+    margin-bottom: 20px;
+}
+.setting-item {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.setting-item label {
+    margin-right: 10px;
+    color: var(--text-color);
+}
+
+#theme-toggle-btn, #add-todo-btn {
+    padding: 8px 12px;
+    background-color: var(--panel-button-bg);
+    color: var(--text-color);
+    border: 1px solid var(--panel-input-border);
+    border-radius: 4px;
+    cursor: pointer;
+}
+#theme-toggle-btn:hover, #add-todo-btn:hover {
+    background-color: var(--panel-button-hover-bg);
+}
+
+#bg-color-picker {
+    border: 1px solid var(--panel-input-border);
+    border-radius: 4px;
+    padding: 2px;
+    cursor: pointer;
+    background-color: var(--panel-input-bg); /* ensure contrast */
+    width: 50px; /* Adjust as needed */
+    height: 30px;
+}
+
+
+#todo-input, #quick-notes {
+    width: calc(100% - 22px); /* Full width minus padding/border */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--panel-input-border);
+    border-radius: 4px;
+    background-color: var(--panel-input-bg);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+#quick-notes {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.todo-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+#todo-input {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#todo-list li {
+    background-color: var(--todo-item-bg);
+    padding: 8px 10px;
+    border: 1px solid var(--todo-item-border);
+    border-radius: 4px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+}
+
+#todo-list li .delete-todo-btn {
+    background: none;
+    border: none;
+    color: #ff4d4d; /* Red color for delete */
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0 5px;
+}
+#todo-list li .delete-todo-btn:hover {
+    color: #cc0000;
+}
